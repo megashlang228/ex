@@ -1,0 +1,30 @@
+﻿<Window x:Class="ex.ui.TeachersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ex.ui"
+        mc:Ignorable="d"
+        Title="TeachersWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Name="dg_teachers" ItemsSource="{Binding}" AutoGenerateColumns="False" SelectionChanged="dg_teachers_SelectionChanged" IsReadOnly="True"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="fio" Binding="{Binding FIO}"  Header="ФИО" FontSize="16"/>
+                <DataGridTextColumn x:Name="post" Binding="{Binding Post.Name}"  Header="Должность" FontSize="16"/>
+                <DataGridTextColumn x:Name="subject" Binding="{Binding Subject.Name}"  Header="Предмет" FontSize="16"/>
+                <DataGridTextColumn x:Name="rate" Binding="{Binding Rate}"  Header="Ставка" FontSize="16"/>
+                
+            </DataGrid.Columns>
+            
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Grid.Row="1">
+            <Button x:Name="add" Content="Добавить" Width="200" Height="20" Margin="10" Click="add_Click"/>
+            <Button x:Name="edit" Content="Редактировать" Width="200" Height="20" Margin="10" Click="edit_Click"/>
+            <Button x:Name="delete" Content="Удалить" Width="200" Height="20" Margin="10" Click="delete_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
